@@ -23,7 +23,6 @@ solve w = product $ take 3 $ reverse $ sort [length (nub (getBasin w (x,y))) | x
 solve2 w = map ((getBasin w)) [(x,y) | x <- [0..length (head w) - 1], y <- [0..length w - 1], lowPoint w x y]
 
 
-
 getLevel :: (Int, Int) -> [[a]] -> a
 getLevel p w = w !! snd p !! fst p
 
