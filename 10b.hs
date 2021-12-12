@@ -7,20 +7,19 @@ getMiddle s = head $ drop (length s `div` 2) s
 
 f :: String -> String -> String
 f (s:stack) (x:xs) | x == '(' = f (x:s:stack) xs
-                         | x == '[' = f (x:s:stack) xs
-                         | x == '<' = f (x:s:stack) xs
-                         | x == '{' = f (x:s:stack) xs
-                         | x == ')' && s == '(' = f stack xs
-                         | x == ']' && s == '[' = f stack xs
-                         | x == '>' && s == '<' = f stack xs
-                         | x == '}' && s == '{' = f stack xs
-                         | x == ')' = []
-                         | x == ']' = []
-                         | x == '}' = []
-                         | x == '>' = []
+                   | x == '[' = f (x:s:stack) xs
+                   | x == '<' = f (x:s:stack) xs
+                   | x == '{' = f (x:s:stack) xs
+                   | x == ')' && s == '(' = f stack xs
+                   | x == ']' && s == '[' = f stack xs
+                   | x == '>' && s == '<' = f stack xs
+                   | x == '}' && s == '{' = f stack xs
+                   | x == ')' = []
+                   | x == ']' = []
+                   | x == '}' = []
+                   | x == '>' = []
 f [] (x:xs) = f [x] xs
 f stack [] = stack
-
 
 score :: String -> Int
 score s = scoreAux (length s) $ reverse s
